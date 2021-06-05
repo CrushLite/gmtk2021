@@ -1,0 +1,235 @@
+{
+  "Rules": {
+    "playerHi": {
+      "Source": "player",
+      "Concept": "Interact",
+      "Type": "Default",
+      "TypeVal": null,
+      "Criteria": [
+        "playerZoomAmount>1",
+        "Not IsMoving"
+      ],
+      "Response": "sayHi",
+      "Memories": []
+    },
+    "playerZoom": {
+      "Source": "player",
+      "Concept": "Interact",
+      "Type": "Timed",
+      "TypeVal": 5,
+      "Criteria": [
+        "IsMoving"
+      ],
+      "Response": "sayZoom",
+      "Memories": []
+    },
+    "": {
+      "Source": null,
+      "Concept": null,
+      "Type": null,
+      "TypeVal": null,
+      "Criteria": [],
+      "Response": null,
+      "Memories": []
+    },
+    "SeeBarrel1": {
+      "Source": "player",
+      "Concept": "Interact",
+      "Type": "Limit",
+      "TypeVal": 1,
+      "Criteria": [
+        "barrelInArea"
+      ],
+      "Response": "saySeeBarrel1",
+      "Memories": [
+        "BarrelsSeen+1"
+      ]
+    },
+    "SeeP2Barrel1": {
+      "Source": "player2",
+      "Concept": "SeeBarrel1",
+      "Type": "Default",
+      "TypeVal": null,
+      "Criteria": [],
+      "Response": "sayP2SeeBarrel1",
+      "Memories": []
+    },
+    "SeeBarrel1Response": {
+      "Source": "player",
+      "Concept": "SeeBarrel1",
+      "Type": "Default",
+      "TypeVal": null,
+      "Criteria": [],
+      "Response": "saySeeBarrel1Response",
+      "Memories": []
+    },
+    "SeeBarrel2": {
+      "Source": "player",
+      "Concept": "Interact",
+      "Type": "Default",
+      "TypeVal": null,
+      "Criteria": [
+        "barrelInArea",
+        "BarrelsSeen==1"
+      ],
+      "Response": "saySeeBarrel2",
+      "Memories": [
+        "BarrelsSeen+1"
+      ]
+    },
+    "SeeBottle1": {
+      "Source": "player",
+      "Concept": "Interact",
+      "Type": "Default",
+      "TypeVal": null,
+      "Criteria": [
+        "bottleInArea"
+      ],
+      "Response": "saySeeBottle1",
+      "Memories": [
+        "BottlesSeen+1"
+      ]
+    },
+    "SeeBottle2": {
+      "Source": "player",
+      "Concept": "Interact",
+      "Type": "Limit",
+      "TypeVal": 1,
+      "Criteria": [
+        "bottleInArea",
+        "BarrelsSeen>1"
+      ],
+      "Response": "saySeeBottle2",
+      "Memories": [
+        "BottlesSeen+1"
+      ]
+    },
+    "SeeBottle2Response": {
+      "Source": "player2",
+      "Concept": "SeeBottle2",
+      "Type": "Default",
+      "TypeVal": null,
+      "Criteria": [],
+      "Response": "saySeeBottle2Response",
+      "Memories": []
+    },
+    "see radiator": {
+      "Source": "player2",
+      "Concept": "Interact",
+      "Type": "Default",
+      "TypeVal": null,
+      "Criteria": [
+        "radiatorInArea"
+      ],
+      "Response": "see radiator",
+      "Memories": [
+        "Radiators seen+1"
+      ]
+    },
+    "see radiator reply": {
+      "Source": "player",
+      "Concept": "see radiator",
+      "Type": "Default",
+      "TypeVal": null,
+      "Criteria": [],
+      "Response": "see radiator reply",
+      "Memories": []
+    },
+    "see radiator 2": {
+      "Source": "player2",
+      "Concept": "Interact",
+      "Type": "Default",
+      "TypeVal": null,
+      "Criteria": [
+        "radiatorInArea",
+        "Radiators seen>=1"
+      ],
+      "Response": "see radiator 2",
+      "Memories": [
+        "Radiators seen+1"
+      ]
+    }
+  },
+  "Responses": {
+    "sayHi": {
+      "Effects": "print Hello World!",
+      "Target": null,
+      "New Concept": null
+    },
+    "sayZoom": {
+      "Effects": "print Weeeee!!",
+      "Target": null,
+      "New Concept": null
+    },
+    "": {
+      "Effects": null,
+      "Target": null,
+      "New Concept": null
+    },
+    "saySeeBarrel1": {
+      "Effects": "speech Vast quantities of urine.",
+      "Target": "player2",
+      "New Concept": "SeeBarrel1"
+    },
+    "sayP2SeeBarrel1": {
+      "Effects": "speech I seriously doubt that.",
+      "Target": "player",
+      "New Concept": "SeeBarrel1"
+    },
+    "saySeeBarrel1Response": {
+      "Effects": "speech You doubt it enough to go stick yer head inside?",
+      "Target": null,
+      "New Concept": null
+    },
+    "saySeeBarrel2": {
+      "Effects": "speech Look out! Another urine barrel.",
+      "Target": null,
+      "New Concept": null
+    },
+    "saySeeBottle1": {
+      "Effects": "speech Its a bottle...",
+      "Target": null,
+      "New Concept": null
+    },
+    "saySeeBottle2": {
+      "Effects": "speech I'm afraid that this is the type of bottle, I'm afraid, might contain a bit of urine.",
+      "Target": "player2",
+      "New Concept": "SeeBottle2"
+    },
+    "saySeeBottle2Response": {
+      "Effects": "speech What is wrong with you?",
+      "Target": null,
+      "New Concept": null
+    },
+    "see radiator": {
+      "Effects": "speech This heater appears to be broken",
+      "Target": "player",
+      "New Concept": "see radiator"
+    },
+    "see radiator reply": {
+      "Effects": "speech We gotta get out of here before we freeze to death.",
+      "Target": null,
+      "New Concept": null
+    },
+    "see radiator 2": {
+      "Effects": "speech Another broken heater. The entire system must be down.",
+      "Target": null,
+      "New Concept": null
+    }
+  },
+  "Criteria": {
+    "isMoving": {
+      "Key": "isMoving",
+      "Low": 1,
+      "High": 1
+    },
+    "bottleInArea": {
+      "Key": "bottleInArea",
+      "Low": 1,
+      "High": 1
+    }
+  },
+  "Sheet5": {
+    "": {}
+  }
+}

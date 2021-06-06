@@ -20,11 +20,13 @@ func read_json():
 	var json = JSON.parse(file.get_as_text()).result
 	file.close()
 	
-	for key in json["Criteria"]:
-		var r = Criterion.new()
-		r.init(key, json["Criteria"][key])
-		criteria_DB[key] = r
+#	for key in json["Criteria"]:
+#		var r = Criterion.new()
+#		r.init(key, json["Criteria"][key])
+#		criteria_DB[key] = r
 	
+	if not "Responses" in json:
+		assert(false, "No responses found, make sure you exported the google sheet properly")
 	for key in json["Responses"]:
 		var r = Response.new()
 		r.init(key, json["Responses"][key])

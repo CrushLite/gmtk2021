@@ -62,7 +62,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-ChatHandler="*res://implementation/ChatHandler.gd"
+ChatHandler="*res://implementation/scripts/ChatHandler.gd"
 
 [physics]
 
